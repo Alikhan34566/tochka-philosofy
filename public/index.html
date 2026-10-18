@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Точка философии</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e7;--card:#fffaf0;--ink:#2a2118;--mute:#7a6a58;--acc:#a8552b;--line:#e2d6c0;--ok:#3f7a4a;--warn:#b07a1a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17130f;--card:#221c16;--ink:#f1e8d9;--mute:#a89984;--acc:#e08a55;--line:#3a3027;--ok:#7fc08a;--warn:#e0b050}}
+:root[data-theme="dark"]{--bg:#17130f;--card:#221c16;--ink:#f1e8d9;--mute:#a89984;--acc:#e08a55;--line:#3a3027;--ok:#7fc08a;--warn:#e0b050}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Lora,Georgia,serif;line-height:1.2;margin:0 0 .5em}h2{margin-top:1.4em}
+a{color:var(--acc)}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav{max-width:900px;margin:auto;display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 16px;align-items:center}
+nav b{font-family:Lora,serif;margin-right:auto}nav a{color:var(--ink);text-decoration:none;font-size:14px}
+main{max-width:900px;margin:auto;padding:0 16px 48px}
+section{padding:32px 0 8px}section h2{margin-top:0}.hero{padding:44px 0 8px}.hero h1{font-size:clamp(32px,8vw,50px)}
+.sub,.note{color:var(--mute)}.note{font-size:13px}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:10px 18px;font:500 15px Inter,sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;color:var(--ink);text-decoration:none;display:block}
+a.card:hover{border-color:var(--acc)}.dash{border-style:dashed}
+.yrs{color:var(--mute);font-size:13px}
+.tag{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:99px;padding:1px 10px;color:var(--acc);margin:0 6px 8px 0}
+.tag.ok{color:var(--ok)}.tag.w{color:var(--warn)}
+.lvl h4{margin:14px 0 8px;font:600 13px Inter,sans-serif;color:var(--mute);text-transform:uppercase;letter-spacing:.05em}
+.arrow{text-align:center;color:var(--acc);font-size:22px;line-height:1;margin:8px 0}
+.back{display:inline-block;margin:20px 0 8px}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.blk h3{font-size:18px}.blk p{margin:.4em 0}
+blockquote{margin:8px 0;padding:4px 12px;border-left:3px solid var(--acc)}blockquote small{display:block;color:var(--mute)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+textarea{width:100%;min-height:80px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);padding:10px;font:16px Inter,sans-serif;resize:vertical}
+.msg{margin-top:8px;font-size:14px;min-height:20px}
+.thought{background:var(--card);border-left:3px solid var(--acc);border-radius:8px;padding:10px 14px;margin-top:10px}.thought small{color:var(--mute)}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:10px 12px;cursor:pointer;font:15px Inter,sans-serif}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:24px 16px}
+.tl{display:block;margin:6px 0;text-decoration:none;color:var(--ink);font-size:13px}.tl i{display:block;height:8px;background:var(--acc);border-radius:4px;margin-top:2px}.glt{min-height:24px;margin:8px 0 0}
+#tgs button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;padding:4px 12px;cursor:pointer;font:13px Inter,sans-serif}#tgs button.on,.gl.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}#app>*{animation:fi .35s ease}@media(prefers-reduced-motion:reduce){#app>*{animation:none}}
+</style>
+</head>
+<body>
+<header><nav><b><a href="#" style="color:var(--acc)">Точка философии</a></b><a href="#poets">Поэты Жетысу</a><a href="#chain">Древо</a><a href="#time">Время</a><a href="#themes">Темы</a><a href="#mic">Мысли</a><a href="#quiz">Quiz</a><button id="tg" class="btn ghost" style="padding:4px 10px" aria-label="Тема">🌙</button></nav></header>
+<main id="app"></main>
+<footer>Точка философии · прототип. Данные нужно сверить с источниками.</footer>
+<script>
+var OK=['ok','Связь известна'],TR=['w','В традиции Абая, нужен источник'],PA=['w','Параллельная ветвь, связь не подтверждена'];
+var P={
+abai:{n:'Абай Кунанбаев',y:'1845–1904',reg:'Источник цепочки',role:'Поэт, мыслитель, композитор',conf:['ok','Источник вдохновения'],
+core:'Просвещение народа и воспитание цельного человека, в котором соединены разум, сердце и воля.',
+vals:['Знание, честный труд, совесть','Лень, ложь, пустое хвастовство, невежество'],
+q:[['Ғылым таппай мақтанба','Не хвались, пока не обрёл знания'],['Бес нәрседен қашық бол, бес нәрсеге асық бол','Беги пяти вещей, стремись к пяти']],
+from:'Пушкин, Лермонтов, Крылов, а также Низами, Навои и Физули. Часть русских авторов он переводил на казахский.',
+baton:['zhansug','makat'],infl:'Абай открыл в казахской поэзии личный, размышляющий голос, к которому обращаются поздние поэты.',
+works:[['Қара сөздер («Слова назидания»)','Короткие размышления о том, каким должен быть человек, как жить среди людей и зачем учиться.'],['«Мен жазбаймын өлеңді ермек үшін»','Абай объясняет, что поэзия для него не забава, а способ разбудить читателя.']],
+tags:['просвещение','смысл_жизни','совесть','любовь'],
+ctx:'Казахская степь второй половины XIX века: уклад менялся, и народ сталкивался с новой властью и новыми идеями.',
+fact:'Абай писал музыку, читал русскую литературу и переводил её на казахский.',deep:[['Жизнь и путь','Абай родился в 1845 году в семье влиятельного рода. Его учили в медресе, а позже он познакомился с русской культурой и общался с политическими ссыльными, которые приносили ему идеи и книги. Долгие годы он занимался управлением и родовыми спорами, а зрелым поэтом стал ближе к сорока годам.||Поздние годы он посвятил стихам, переводам и «Словам назидания», где подводит итог своим размышлениям о человеке.'],['Что его вдохновило','Три источника. Первый: казахская устная поэзия, жырау и айтыс, из которых он вырос. Второй: восточные поэты, которых читали в степи, такие как Низами, Навои и Физули. Третий: русская литература, прежде всего Пушкин и Лермонтов, которых он переводил.||Главным толчком было разочарование: он видел, как родовая борьба, зависть и невежество мешают людям жить достойно, и искал, на что опереться.'],['Почему это важно для цепочки','Абай соединил степную традицию с письменной культурой и дал казахской поэзии новый голос: личный, думающий, спорящий с самим собой. Поэтому к нему возвращаются поздние авторы, когда говорят о совести, знании и смысле жизни.']],ev:['ok','Подтверждено','Переводы, собственные тексты и воспоминания современников подтверждают его источники вдохновения. Это самый надёжный пункт цепочки.']},
+zhansug:{n:'Ильяс Жансугуров',y:'1894–1938',reg:'Жетысу',role:'Поэт, писатель',conf:TR,
+core:'Любовь к родной земле и судьба творца в трудное время.',
+vals:['Честное, свободное слово','Угнетение таланта'],q:[],
+from:'Традиция Абая и казахской поэзии. Нужно подтвердить источниками, кого он называл учителем.',baton:[],infl:'Нужно найти подтверждение: в чём именно он развивает темы Абая.',
+works:[['«Құлагер»','История акына и его любимого коня: о таланте, верности и цене таланта.']],
+tags:['судьба_поэта','родина','свобода'],
+ctx:'Революция, перемены в степи и репрессии 1930-х.',fact:'Расстрелян в 1938 году.',deep:[['Жизнь и эпоха','Ильяс Жансугуров родился в 1894 году в Жетысу и вошёл в литературу в годы перемен: революция, новая власть, школы и газеты на казахском языке. Его считают одним из основателей казахской советской поэзии.||В 1938 году он был расстрелян в ходе репрессий. Позднее его имя восстановили, а книги вернулись к читателю.'],['«Құлагер»: что за этим стоит','Поэма опирается на предание об акыне и певце Акане сери и его коне Кулагере. Конь выиграл скачку, но был отравлен завистниками и погиб, а акын спел о нём горький плач. Для читателя это история о том, как зависть убивает талант, и о верности между человеком и тем, что он любит.||Тема судьбы творца в мире, который не всегда умеет его беречь, перекликается с размышлениями Абая о зависти и нравственном выборе.'],['Что его вдохновило','Народная поэзия и предания, образы степи и коня, а также новая жизнь, о которой он писал. Что именно он читал у Абая и считал ли его учителем, нужно уточнять по его статьям и воспоминаниям современников.']],ev:['w','Вероятно, на уровне традиции','Критики видят в казахской поэзии XX века преемственность от Абая, но у меня нет проверенного прямого заявления Жансугурова об Абае как об учителе. Нужны его статьи, письма и работы литературоведов.']},
+makat:{n:'Мукагали Макатаев',y:'1931–1976',reg:'Жетысу',role:'Поэт-лирик',conf:TR,
+core:'Человек и народ, любовь, правда в слове.',
+vals:['Искренность, верность своему народу','Ложь и равнодушие'],q:[],
+from:'Традиция Абая и казахской поэзии. Нужно подтвердить источниками.',baton:[],infl:'Нужно найти подтверждение: чем его лирика продолжает темы Абая.',
+works:[['«Мен қазақпын»','Стихотворение о том, что значит быть казахом и принадлежать своему народу.'],['«Дариға, сол қыз»','Лирика о любви и памяти.']],
+tags:['любовь','родина','смысл_жизни'],
+ctx:'Послевоенные десятилетия и советская эпоха.',fact:'Ушёл из жизни в 1976 году, многие его стихи получили признание позже.',deep:[['Жизнь и эпоха','Мукагали Макатаев родился в 1931 году в Жетысу и вырос в послевоенное время, когда жизнь была тяжёлой, а свободы слова было мало. При жизни у него вышло немного книг, а значительная часть наследия пришла к читателям позже, после 1976 года.||Его стихи узнают по искренности: он пишет о любви, о родной земле и о судьбе человека.'],['«Мен қазақпын» и «Дариға, сол қыз»','Первое стихотворение о том, что значит принадлежать своему народу и помнить его историю, не теряя честности. Второе лирика о любви и памяти. В обоих случаях он говорит без украшений, от первого лица, как человек, который не прячется за маской.'],['Что его вдохновило','Казахская устная поэзия, песня и классики письменной традиции, а также собственная судьба и трудные годы. Его личный, откровенный тон часто сравнивают с традицией Абая, где поэт говорит с читателем о своих сомнениях.']],ev:['w','Вероятно, на уровне традиции','Сравнение с Абаем встречается в критике, но нужны его собственные слова и работы исследователей, чтобы утверждать прямое вдохновение. Пока это гипотеза, а не доказанный факт.']},
+suyunbay:{n:'Суюнбай Аронулы',y:'1827–1895',reg:'Жетысу',role:'Акын',conf:PA,
+core:'Слово акына как голос народа и искусство айтыса.',
+vals:['Острое слово, мудрость','Пустословие'],q:[],
+from:'Устная традиция жырау и акынов.',baton:['zhambyl'],infl:'Передал традицию Жамбылу.',
+works:[['Айтыс с Катаганом','Поэтическое состязание, где побеждает тот, кто быстрее и мудрее ответит словом.']],
+tags:['айтыс','слово'],ctx:'Кочевая жизнь XIX века, где поэзия звучала на празднествах.',fact:'Учитель Жамбыла.',deep:[['Кто он','Суюнбай Аронулы (1827–1895) был одним из самых известных акынов Жетысу. Он выступал на празднествах и в айтысах, где акыны состязались в остроумии и мудрости. Его слава сохранилась в устной памяти народа.||Он был учителем Жамбыла, и через него традиция дошла до XX века.'],['Что его вдохновило','Устная поэзия, песни и айтыс как школа слова: здесь поэт должен отвечать мгновенно и мудро. Письменная традиция Абая развивалась отдельно.']],ev:['w','Не подтверждено','Суюнбай старше Абая и принадлежит устной традиции. Подтверждений влияния Абая на него я не знаю, поэтому он показан как параллельная ветвь.']},
+zhambyl:{n:'Жамбыл Жабаев',y:'1846–1945',reg:'Жетысу',role:'Акын',conf:PA,
+core:'Живое слово народа и мужество.',
+vals:['Честь, единство, находчивое слово','Несправедливость'],q:[],
+from:'Суюнбай и традиция айтыса.',baton:[],infl:'Развил устную традицию Жетысу.',
+works:[['«Өтеген батыр»','Эпос о батыре и его подвигах.'],['«Ленинградтықтар, өренім!»','Обращение к осаждённому Ленинграду в 1941 году.']],
+tags:['народ','мужество','слово'],
+ctx:'Жизнь от кочевой степи до советского времени.',fact:'Пел под домбру, импровизируя, и прожил почти сто лет.',deep:[['Жизнь и эпоха','Жамбыл Жабаев (1846–1945) учился у Суюнбая и прославился как импровизатор и певец. Он прожил почти сто лет и застал и кочевую степь, и советское время. В 1930-е годы его объявили народным акыном страны, и часть его текстов того времени отражает идеологию эпохи.||В 1941 году он обратился к осаждённому Ленинграду со стихами, которые читали по всей стране.'],['Что его вдохновило','Школа айтыса, эпос о батырах и сама степная жизнь. Он рос в среде, где слово звучало вслух, а не читалось с листа. Это иной путь к мудрости, чем у Абая, но у обоих поэзия служит народу.']],ev:['w','Не подтверждено','Жамбыл и Абай жили в одно время, но принадлежали разным традициям: устной и письменной. Прямое влияние Абая на Жамбыла мне неизвестно, поэтому он показан как параллельная ветвь. Нужно проверить по исследованиям.']}};
+var T={
+life:['Смысл жизни','Өмір мәні','Абай видел смысл в становлении цельного человека. Для поэтов Жетысу это вопрос судьбы и долга перед народом.'],
+love:['Любовь','Махаббат','Любовь у Абая чувство и испытание совести. Мукагали превращает её в личную исповедь.'],
+freedom:['Свобода','Бостандық','Абай говорил о внутренней свободе от невежества и лжи. Жансугуров пишет о свободе творчества.'],
+mind:['Разум и знание','Ақыл мен ғылым','Абай зовёт учиться и думать самому.'],
+conscience:['Совесть','Ұждан','Совесть у Абая мера человека, а не слов.'],
+home:['Родина и народ','Ел','Мукагали и Жамбыл говорят о принадлежности к народу. Абай любит его и честно критикует.'],
+time:['Время и смерть','Өмір мен өлім','Абай в поздних стихах честно размышляет о старости и смерти.'],
+work:['Труд','Еңбек','Абай ценит честный труд и осуждает праздность.']};
+var TH={life:['abai','makat','zhansug'],love:['abai','makat'],freedom:['abai','zhansug','zhambyl'],mind:['abai'],conscience:['abai'],home:['makat','zhambyl','zhansug'],time:['abai'],work:['abai']};
+P.zhansug.conf=['ok','Подтверждено его собственными словами'];
+P.zhansug.from='Абай. В автобиографии Ильяс пишет, что получил сборник Абая 1909 года и что эта книга перевернула всё, что он читал раньше, и разбудила его мысль. До этого он слышал стихи Абая устно через акына Асета.';
+P.zhansug.infl='Ильяс сам писал об Абае (статья «Абайдың сөз өрнегі», заметки об «Абай кітабы» 1923 года) и называл его большим новатором казахской литературы.';
+P.zhansug.ev=['ok','Подтверждено','Это самая надёжная связь с Жетысу: о влиянии Абая пишет сам Ильяс, а его статьи об Абае опубликованы. Исследователи спорят лишь о том, был ли первым учителем Абай или Шакарим.'];
+P.zhansug.rel=[['auezov','Друг Ильяса. По нескольким источникам, Ильяс советовал Ауэзову заняться исследованием Абая, и Ауэзов выпустил первое полное собрание стихов Абая (1933), а затем роман об Абае.'],['aset','Ильяс чтил Асета с детства и в 1920-е годы посвятил ему три стихотворения.'],['shakarim','Один исследователь предполагает, что первым учителем Ильяса был Шакарим. Это спорная гипотеза.']];
+P.makat.ev=['w','Связь не подтверждена','Я нашёл только сравнения: имя Макатаева ставят рядом с именами Абая и Ауэзова. Слов самого поэта об Абае как об учителе я не нашёл, поэтому метка остаётся жёлтой.'];
+P.suyunbay.y='1827–1895';P.suyunbay.ynote='в источниках даты расходятся, встречается 1815–1898';
+P.zhambyl.ev=['w','Не подтверждено','Жамбыла и Абая в официальных и учебных текстах называют двумя столпами казахской литературы и говорят о переплетении их идей. Это оценка, а не доказательство влияния. Прямой связи в источниках я не нашёл. Часть советских текстов Жамбыла вызывает споры о подлинности.'];
+P.abai.rel=[['aset','Абай написал эпиграмму, посвящённую Асету. Как Абай относился к Асету, трактуют по-разному.'],['zhansug','Ильяс Жансугуров написал об Абае статью и заметки, а его автобиография называет книгу Абая переломной.'],['auezov','Родственник Абая. Автор романа «Абай жолы» и составитель первого полного собрания стихов Абая (1933).']];
+P.aset={n:'Асет Найманбайулы',y:'1867–1922',reg:'Сарыарка, пел по всему Жетысу',role:'Акын, композитор, певец',conf:['w','Мост к Ильясу подтверждён, связь с Абаем нужна проверка'],core:'Песня и импровизация как мост между устной и письменной литературой.',vals:['Искусство слова и песни, знание','Лицемерие и власть волостных правителей'],q:[],from:'Традиция Биржана сала и Акан сери. Отдельные источники называют Абая его прямым учителем, но другие этого не подтверждают.',baton:['zhansug'],infl:'Асет разнёс песни своего края по Жетысу, Тарбагатаю и Алтаю. Ильяс Жансугуров чтил его с детства.',works:[['Песни и айтыс','Айтыс с Ырысжан, песни и стихи; сохранились в нескольких вариантах.'],['Киссы-дастаны','Среди них «Салиха-Самен» и «Француз».']],tags:['песня','айтыс','мост'],ctx:'Конец XIX и начало XX века, когда устная поэзия встречалась с книгой.',fact:'Умер в городе Кульдже.',deep:[['Почему он важен в цепочке','Для Жетысу Асет стал живым мостом. Его песни пели в Жетысу, и именно через него Ильяс Жансугуров в детстве услышал стихи Абая. Ильяс посвятил ему три стихотворения.||В источниках его называют продолжателем традиции Биржана сала и Акан сери, и это надёжнее, чем утверждение о прямом ученичестве у Абая.']],ev:['w','Мост к Ильясу подтверждён','Связь Асет → Ильяс описана в биографиях Ильяса. Связь Абай → Асет разные источники описывают по-разному, поэтому нужны научные издания.'],rel:[['zhansug','Ильяс посвятил ему три стихотворения: «Бұлбұлға», «Тұңғыш тоғысу», «Әнші».'],['abai','Абай написал эпиграмму, посвящённую Асету.']]};
+P.auezov={n:'Мухтар Ауэзов',y:'1897–1961',reg:'Семейский край, друг Ильяса',role:'Писатель, драматург, учёный',conf:['ok','Подтверждено: друг Ильяса, родственник Абая'],core:'Сделать Абая понятным миру: собрать его стихи и рассказать его жизнь.',vals:['Знание, память о предках','Забвение культуры'],q:[],from:'Абай. Семья Ауэзова была в родстве с Абаем, а дед был его другом.',baton:[],infl:'Идеи Абая стали основой его исследований и романа.',works:[['«Абай жолы»','Роман-эпопея об Абае, первая книга вышла в 1942 году.'],['Первое полное собрание стихов Абая','Выпущено в 1933 году.']],tags:['Абай','память','наука'],ctx:'Репрессии, война и работа над наследием Абая.',fact:'В 1918 году издавал журнал «Абай» вместе с Жусупбеком Аймауытовым.',deep:[['Нить к Жетысу','Ауэзов дружил с Ильясом Жансугуровым, и по нескольким источникам Ильяс советовал ему заняться исследованием Абая. Ауэзов также высоко ценил Ильяса: прочитав его «Жетысу суреттері», он сказал, что поверил в настоящую поэзию Ильяса.||Ауэзов писал и о Жетысу как о месте, где расцвело искусство импровизации, и о Жамбыле.']],ev:['ok','Подтверждено','Дружба Ауэзова с Ильясом и совет заняться Абаем встречаются в нескольких биографиях. Сказал ли Ильяс именно эти слова, лучше проверить по мемуарам.'],rel:[['zhansug','Друг и коллега. Ильяс советовал ему заняться Абаем.'],['abai','Родственник Абая и его главный исследователь.']]};
+P.shakarim={n:'Шакарим Кудайбердиулы',y:'1858–1931',reg:'Семейский край, гипотеза о связи с Ильясом',role:'Поэт, философ',conf:['w','Гипотеза: учитель Ильяса'],core:'Поиск истины через совесть и разум.',vals:['Совесть, честность','Лицемерие'],q:[],from:'Абай, родственник и последователь.',baton:[],infl:'Один исследователь считает, что первым учителем Ильяса Жансугурова был Шакарим, а не Абай. Другие считают, что стихи Ильясу открыл Абай.',works:[['«Үш анық»','Философский труд о совести и истине.'],['«Қалқаман–Мамыр»','Поэма.']],tags:['совесть','истина'],ctx:'Начало XX века, перемены в степи.',fact:'Расстрелян в 1931 году.',deep:[['Почему он в цепочке','Шакарима обычно называют продолжателем Абая. Связь с Жетысу идёт только через спорную гипотезу об Ильясе: в интервью в публицистике встречается мысль, что именно Шакарим был его первым учителем. Я нашёл только сам вопрос и спор, а не доказательства, поэтому метка жёлтая.']],ev:['w','Гипотеза','Это спор исследователей об учителе Ильяса. Для сайта нужны научные работы, где аргументы приведены подробно.'],rel:[['zhansug','Спорная гипотеза: был ли Шакарим первым учителем Ильяса.']]};
+P.zhansug.read=[['«Құлагер» (текст)','https://abai.kz/post/13332'],['Ильяс Жансугуров: «Абайдың сөз өрнегі»','https://abai.kz/post/12531']];
+P.abai.read=[['Ильяс Жансугуров о языке Абая: «Абайдың сөз өрнегі»','https://abai.kz/post/12531']];
+/* ===== СЛОЙ ДАННЫХ И API. Для своего сервера: впишите адрес в CFG.API_BASE ===== */
+var CFG={API_BASE:'',DATA_URL:''}; // DATA_URL: адрес JSON с данными (формат seed.json); '' = данные внутри страницы
+ // '' = демо в браузере; 'https://ваш-сервер/api' = настоящий бэкенд
+var MSG={published:'Опубликовано.',pending:'Мысль отправлена на модерацию.',short:'Слишком коротко.',rate:'Подождите немного перед следующей мыслью.',link:'Ссылки не разрешены.',server:'Ошибка сервера.'};
+/* Контракт: GET /thoughts?target=<ключ> -> ["текст",...]; POST /thoughts {target,text} -> {status:'published'|'pending'|'rejected',reason?} */
+var API={
+list:function(k){if(CFG.API_BASE)return fetch(CFG.API_BASE+'/thoughts?target='+encodeURIComponent(k)).then(function(r){return r.json()});
+return Promise.resolve(ld().filter(function(x){return x.k===k}).map(function(x){return x.t}))},
+post:function(k,t){if(CFG.API_BASE)return fetch(CFG.API_BASE+'/thoughts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({target:k,text:t})}).then(function(r){return r.json()});
+var now=Date.now();
+if(t.length<5)return Promise.resolve({status:'rejected',reason:'short'});
+if(now-last<20000)return Promise.resolve({status:'rejected',reason:'rate'});
+if(/https?:\/\/|www\./i.test(t))return Promise.resolve({status:'rejected',reason:'link'});
+last=now;
+if(STOP.some(function(w){return t.toLowerCase().indexOf(w)>-1}))return Promise.resolve({status:'pending'});
+sv(k,t);return Promise.resolve({status:'published'})}};
+var GL={adam:['«Адам бол»','Призыв стать настоящим человеком: честным, образованным и совестливым. Один из главных мотивов Абая.'],tolyk:['«Толық адам»','Цельный человек, в котором соединены разум, сердце и воля.'],uzhdan:['«Ұждан»','Совесть. Ключевое понятие Шакарима: основа человека и мера его поступков.'],aytys:['Айтыс','Состязание акынов в остроумии и мудрости: слово, сказанное мгновенно и перед людьми.']};
+P.abai.gl=['adam','tolyk'];P.shakarim.gl=['uzhdan'];P.suyunbay.gl=P.zhambyl.gl=P.aset.gl=['aytys'];
+function tl(){var rows=[];Object.keys(P).forEach(function(id){var m=(P[id].y||'').match(/\d{4}/g);if(m)rows.push([id,+m[0],m[1]?+m[1]:new Date().getFullYear()])});
+if(!rows.length)return '';var a=Math.min.apply(null,rows.map(function(r){return r[1]}))-5,b=Math.max.apply(null,rows.map(function(r){return r[2]}))+5;rows.sort(function(x,y){return x[1]-y[1]});
+return '<section id="time"><h2>Шкала времени</h2>'+rows.map(function(r){return '<a class="tl" href="#p/'+r[0]+'"><span>'+P[r[0]].n+' · '+r[1]+'–'+r[2]+'</span><i style="margin-left:'+((r[1]-a)/(b-a)*100)+'%;width:'+Math.max((r[2]-r[1])/(b-a)*100,1)+'%"></i></a>'}).join('')+'<p class="note">Шкала '+a+'–'+b+': видно, чьи жизни пересекались.</p></section>'}
+function tagf(){var set={},cur=window.curTag||'',box=document.getElementById('tgs'),base=['zhansug','makat','suyunbay','zhambyl'];if(!box)return;Object.keys(P).forEach(function(id){(P[id].tags||[]).forEach(function(t){set[t]=1})});
+function draw(){box.innerHTML=Object.keys(set).map(function(t){return '<button class="'+(t===cur?'on':'')+'" data-t="'+t+'">#'+t+'</button>'}).join('');
+document.getElementById('pg').innerHTML=Object.keys(P).filter(function(id){return cur?(P[id].tags||[]).indexOf(cur)>-1:base.indexOf(id)>-1}).map(pc).join('');
+box.querySelectorAll('button').forEach(function(b){b.onclick=function(){cur=cur===b.dataset.t?'':b.dataset.t;window.curTag=cur;draw()}})}draw()}
+P.abai.drama='Абай видел, как родной край тонет в родовых спорах, зависти и невежестве, пока мир идёт вперёд через науку. Он сам долго жил этой жизнью и разочаровался в ней, поэтому в поздних текстах так много одиночества и поиска опоры.';
+P.abai.music='Абай писал и музыку. Среди его известных песен «Көзімнің қарасы» и «Айттым сәлем, қалам қас», которые поют до сих пор.';
+P.abai.modern='Его призыв учиться, думать самому и отвечать за свои поступки сегодня звучит как основа критического мышления и личной ответственности.';
+P.abai.challenge='Ты винишь время и людей в своих неудачах или избегаешь того, что в твоей власти?';
+P.zhansug.drama='Творец на стыке эпох: старый мир уходит, новое время требует от поэта идеологических рамок. Он жил в годы, когда за слово платили жизнью, и стал жертвой репрессий.';
+P.zhansug.music='Песни Асета звучали по всему Жетысу, и Ильяс посвятил этому певцу три стихотворения.';
+P.zhansug.modern='«Құлагер» остаётся историей о том, как зависть и жестокость убивают талант. Эта тема понятна в любое время.';
+P.zhansug.challenge='Если талант рядом с тобой окажется в опасности, ты защитишь его или промолчишь?';
+P.makat.challenge='Что для тебя значит быть верным своему народу и не потерять честности?';
+P.suyunbay.challenge='Сумел бы ты ответить мудро и вовремя, когда слово нужно здесь и сейчас?';
+P.zhambyl.challenge='Чем твоё слово может поддержать людей в трудный час?';
+P.aset.challenge='Какая песня связывает тебя с родным краем?';
+P.shakarim.challenge='Что скажет твоя совесть о твоём сегодняшнем дне?';
+P.auezov.challenge='Что ты можешь сохранить для тех, кто придёт после тебя?';
+['suyunbay','zhambyl','aset'].forEach(function(k){P[k].music='Стихи звучали вживую: акыны пели и импровизировали, а не писали для чтения глазами.'});
+function cnt(f){var c=f.parentNode.querySelector('.cnt');if(c){var n=f.querySelectorAll('.thought').length;c.textContent=n?'Мыслей здесь: '+n:''}}
+function rndw(){var b=document.getElementById('rb');if(!b)return;function show(){var pool=[];Object.keys(P).forEach(function(id){var p=P[id];(p.q||[]).forEach(function(q){pool.push(['Цитата: '+q[0]+' ('+q[1]+')',id])});if(p.challenge)pool.push(['Вопрос в духе поэта: '+p.challenge,id]);if(p.drama)pool.push(['Внутренняя драма: '+p.drama,id]);if(p.modern)pool.push(['Сегодня: '+p.modern,id])});
+var r=pool[Math.floor(Math.random()*pool.length)],box=document.getElementById('rnd');box.style.display='block';box.innerHTML='<p>'+r[0]+'</p><a href="#p/'+r[1]+'">'+P[r[1]].n+' →</a> <button class="btn ghost" id="rb2">Ещё одну</button>';document.getElementById('rb2').onclick=show}b.onclick=show}
+function card(b){var t=b.dataset.t;if(t.length>220)t=t.slice(0,217)+'...';var fs=t.length>90?44:64,c=document.createElement('canvas');c.width=c.height=1080;var x=c.getContext('2d');x.fillStyle='#f6f1e7';x.fillRect(0,0,1080,1080);x.fillStyle='#a8552b';x.fillRect(90,140,120,6);x.fillStyle='#2a2118';x.font='600 '+fs+'px Georgia,serif';
+var l='',y=300;function put(s){if(y<=800){x.fillText(s,90,y);y+=fs*1.3}}
+t.split(' ').forEach(function(s){while(x.measureText(s).width>900){var k=s.length;while(k>1&&x.measureText(s.slice(0,k)).width>900)k--;if(l){put(l);l=''}put(s.slice(0,k));s=s.slice(k)}var n=l?l+' '+s:s;if(x.measureText(n).width>900&&l){put(l);l=s}else l=n});put(l);
+x.font='36px sans-serif';x.fillStyle='#7a6a58';x.fillText('— '+b.dataset.a,90,940);x.fillText('Точка философии',90,1020);
+var u=c.toDataURL('image/png'),d=document.createElement('div');d.className='cardout';d.innerHTML='<img alt="Открытка" style="width:100%;max-width:360px;border-radius:12px;display:block;margin:8px 0"><a class="btn" download="tochka-filosofii.png">💾 Скачать открытку</a><p class="note">Если скачивание не сработало, зажмите картинку и сохраните её.</p>';
+d.querySelector('img').src=u;d.querySelector('a').href=u;var o=b.parentNode.querySelector('.cardout');if(o)o.remove();b.parentNode.appendChild(d)}
+var app=document.getElementById('app');
+function tg(c){return '<span class="tag '+c[0]+'">'+c[1]+'</span>'}
+function pc(id){var p=P[id];return '<a class="card" href="#p/'+id+'">'+tg(p.conf)+'<h3>'+p.n+'</h3><div class="yrs">'+p.y+' · '+p.reg+'</div><p>'+p.role+'</p></a>'}
+function ci(id,d){var p=P[id];return '<a class="card'+(d?' dash':'')+'" href="#p/'+id+'">'+tg(p.conf)+'<b>'+p.n+'</b><div class="yrs">'+p.y+'</div></a>'}
+function tb(tag){return '<textarea class="tx" maxlength="1500" placeholder="Что вы думаете'+(tag?' · '+tag:'')+'?"></textarea><button class="btn send" style="margin-top:8px">Отправить</button><div class="msg"></div><p class="note cnt"></p><div class="feed" data-k="'+(tag||'')+'"></div><p class="note">Демо: мысли хранятся только в этом браузере и пропадут в режиме инкогнито или при очистке данных. Это не ошибка сайта. Настоящая модерация будет на сервере.</p>'}
+var STOP=['дурак','идиот','спам'],last=0;
+function mk(t){var d=document.createElement('div');d.className='thought';d.appendChild(document.createTextNode(t));var s=document.createElement('small');s.textContent='Вы · опубликовано';d.appendChild(document.createElement('br'));d.appendChild(s);return d}
+function ld(){try{return JSON.parse(localStorage.getItem('tf_t')||'[]')}catch(e){return[]}}
+function sv(k,t){try{var a=ld();a.unshift({k:k,t:t});localStorage.setItem('tf_t',JSON.stringify(a.slice(0,50)))}catch(e){}}
+function wire(){
+app.querySelectorAll('.feed').forEach(function(f){f.innerHTML='<p class="note">Загрузка мыслей...</p>';API.list(f.dataset.k).then(function(a){f.innerHTML=a.length?'':'<p class="note empty">Здесь пока пусто. Станьте первым, кто поделится мыслью.</p>';a.forEach(function(t){f.appendChild(mk(t))});cnt(f)}).catch(function(){f.innerHTML='<p class="note">Не удалось загрузить мысли.</p>'})});
+app.querySelectorAll('.gl').forEach(function(b){b.onclick=function(){app.querySelectorAll('.gl').forEach(function(x){x.classList.remove('on')});b.classList.add('on');app.querySelector('.glt').textContent=GL[b.dataset.g][1]}});
+app.querySelectorAll('.cd').forEach(function(b){b.onclick=function(){card(b)}});
+app.querySelectorAll('.cp').forEach(function(b){b.onclick=function(){var t=b.dataset.t,done=function(){b.textContent='✓ Скопировано!';setTimeout(function(){b.textContent='Скопировать'},1500)};
+try{navigator.clipboard.writeText(t).then(done).catch(function(){fb()})}catch(e){fb()}
+function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();var ok=false;try{ok=document.execCommand('copy')}catch(e){}a.remove();if(ok)done();else{b.textContent='Не удалось скопировать';setTimeout(function(){b.textContent='Скопировать'},1500)}}}});
+app.querySelectorAll('.send').forEach(function(b){b.onclick=function(){var bx=b.parentNode,tx=bx.querySelector('.tx'),m=bx.querySelector('.msg'),f=bx.querySelector('.feed'),t=tx.value.trim();b.disabled=true;
+API.post(f.dataset.k,t).then(function(r){var ok=r.status==='published';m.style.color=ok?'var(--ok)':'var(--warn)';m.textContent=MSG[r.status==='rejected'?r.reason:r.status]||MSG.server;if(ok){var e=f.querySelector('.empty');if(e)e.remove();f.prepend(mk(t));cnt(f);tx.value=''}}).catch(function(){m.style.color='var(--warn)';m.textContent=MSG.server}).then(function(){b.disabled=false})}})}
+function home(){
+var h='<div class="hero"><h1>Место, где мысль<br>находит отклик</h1><p class="sub" style="max-width:560px">Древо казахской поэзии: письменная ветвь Абая, устная школа Жетысу и лирика XX века.</p><a class="btn" href="#mic">Поделиться мыслью</a> <a class="btn ghost" href="#quiz">Пройти Quiz</a> <button class="btn ghost" id="rb">🎲 Случайная мысль</button><div id="rnd" class="card" style="display:none;margin-top:12px"></div></div>';
+h+='<section id="poets"><h2>Поэты Жетысу</h2><div class="chips" id="tgs" style="margin-bottom:12px"></div><div class="grid" id="pg"></div><p class="note">Источник вдохновения: <a href="#p/abai">Абай Кунанбаев</a>. Нити к Жетысу: <a href="#p/aset">Асет</a>, <a href="#p/auezov">Ауэзов</a>, <a href="#p/shakarim">Шакарим</a>.</p></section>';
+h+='<section id="chain"><h2>Ветви единого древа</h2><p class="note">Не все поэты вышли из Абая: у казахской поэзии несколько ветвей, и у каждой свои корни. Связь с Абаем показана только там, где она известна, и это одна из нитей, а не единственная. Часть связей остаётся предметом споров исследователей. Зелёная метка: подтверждено документами. Жёлтая: предполагается или не подтверждено.</p>';
+h+='<div class="card" style="text-align:center"><b>Общий корень</b><br>Казахское слово: песня, жырау, айтыс и письменная культура</div><div class="arrow">↓</div>';
+[['Письменная философская ветвь',['abai','shakarim','auezov'],'Абай открывает личный, размышляющий голос. Шакарим и Ауэзов продолжают его и изучают его наследие.'],['Устная школа Жетысу',['suyunbay','zhambyl','aset'],'Айтыс, эпос и песня. У этой ветви собственные корни, и она значима сама по себе.'],['Лирика XX века',['zhansug','makat'],'Ильяс связан и с Абаем, и с Асетом. Мукагали идёт своим путём и стоит рядом по силе слова.']].forEach(function(b){h+='<div class="blk"><h3>'+b[0]+'</h3><p class="sub">'+b[2]+'</p><div class="grid">'+b[1].map(function(x){return ci(x)}).join('')+'</div></div>'});
+h+='<div class="blk"><h3>🔀 Места встречи ветвей</h3><p><a href="#p/zhansug">Ильяс Жансугуров</a> слышал стихи Абая через <a href="#p/aset">Асета</a> и сам писал об Абае.</p><p><a href="#p/auezov">Ауэзов</a> дружил с Ильясом и занялся наследием Абая, по нескольким источникам, по его совету.</p></div></section>';
+h+=tl();h+='<section id="themes"><h2>Темы</h2><div class="grid">'+Object.keys(T).map(function(k){return '<a class="card" href="#t/'+k+'"><div class="yrs">'+T[k][1]+'</div><h3>'+T[k][0]+'</h3></a>'}).join('')+'</div></section>';
+h+='<section id="mic"><h2>Точка мыслей</h2>'+tb('')+'</section><section id="quiz"><h2>Ваш поэтический двойник</h2><div id="qz"></div></section>';
+app.innerHTML=h;wire();quiz();tagf();rndw()}
+function poet(id){var p=P[id];if(!p)return home();
+var h='<a class="back" href="#">← Назад</a><br>'+tg(p.conf)+'<h1>'+p.n+'</h1><div class="yrs">'+p.y+(p.ynote?' ('+p.ynote+')':'')+' · '+p.reg+' · '+p.role+'</div><p><button class="btn ghost" id="wm">✍️ Написать мысль об этом поэте</button></p>';
+h+='<div class="blk"><h3>🧬 Суть</h3><p><b>Главная идея:</b> '+p.core+'</p><p><b>Ценил:</b> '+p.vals[0]+'.</p><p><b>Против:</b> '+p.vals[1]+'.</p>';
+h+=p.q.length?p.q.map(function(q){return '<blockquote>'+q[0]+'<small>'+q[1]+'</small><button class="btn ghost cp" data-t="'+q[0]+'">Скопировать</button> <button class="btn ghost cd" data-t="'+q[0]+'" data-a="'+p.n+'">Открытка</button></blockquote>'}).join('')+'<p class="note">Сверьте цитаты с изданием.</p>':'<p class="note">Цитаты добавим из проверенных изданий.</p>';
+h+='</div><div class="blk"><h3>🔗 Связь</h3><p><b>Кто вдохновил:</b> '+p.from+'</p>';
+if(p.baton.length)h+='<p><b>Кому передал эстафету:</b></p><div class="grid">'+p.baton.map(function(x){return ci(x,1)}).join('')+'</div>';
+h+='<p><b>В чём влияние:</b> '+p.infl+'</p></div>';
+if(p.rel&&p.rel.length){h+='<div class="blk"><h3>🧵 Нити связи</h3>'+p.rel.map(function(r){return '<p><a href="#p/'+r[0]+'"><b>'+P[r[0]].n+'</b></a>: '+r[1]+'</p>'}).join('')+'</div>'}
+h+='<div class="blk"><h3>📖 Главные произведения</h3>'+p.works.map(function(w){return '<p><b>'+w[0]+'</b><br><span class="sub">'+w[1]+'</span></p>'}).join('')+'<div class="chips">'+p.tags.map(function(t){return '<span class="tag">#'+t+'</span>'}).join('')+'</div></div>';
+h+='<div class="blk"><h3>👤 Личность и эпоха</h3><p><b>Эпоха:</b> '+p.ctx+'</p><p><b>Деталь:</b> '+p.fact+'</p><p><b>Годы и регион:</b> '+p.y+', '+p.reg+'</p></div>';
+if(p.deep){h+='<h2>Читать глубже</h2>'+p.deep.map(function(d){return '<div class="blk"><h3>'+d[0]+'</h3>'+d[1].split('||').map(function(x){return '<p>'+x+'</p>'}).join('')+'</div>'}).join('')+'<div class="blk"><h3>⚖️ Насколько это так</h3><span class="tag '+p.ev[0]+'">'+p.ev[1]+'</span><p>'+p.ev[2]+'</p></div>'}
+if(p.drama||p.music||p.modern){h+='<div class="blk"><h3>⚡ Живой портрет</h3>'+(p.drama?'<p><b>Внутренняя драма:</b> '+p.drama+'</p>':'')+(p.music?'<p><b>Музыка и голос:</b> '+p.music+'</p>':'')+(p.modern?'<p><b>Сегодня:</b> '+p.modern+'</p>':'')+'</div>'}
+if(p.challenge){h+='<div class="blk"><h3>💬 Вопрос вам</h3><p>'+p.challenge+'</p><p class="note">Вопрос редакции в духе поэта, это не цитата.</p></div>'}
+if(p.gl){h+='<div class="blk"><h3>🔑 Ключевые понятия</h3><div class="chips">'+p.gl.map(function(g){return '<button class="btn ghost gl" data-g="'+g+'">'+GL[g][0]+'</button>'}).join('')+'</div><p class="glt"></p></div>'}
+if(p.read){h+='<div class="blk"><h3>📚 Что почитать</h3>'+p.read.map(function(r){return '<p><a href="'+r[1]+'" target="_blank" rel="noopener">'+r[0]+'</a></p>'}).join('')+'</div>'}
+h+='<h2>Точка мыслей</h2>'+tb(p.n);
+app.innerHTML=h;wire();document.getElementById('wm').onclick=function(){var t=app.querySelector('.tx');t.scrollIntoView();t.focus()}}
+function theme(k){var t=T[k];if(!t)return home();
+app.innerHTML='<a class="back" href="#">← Назад</a><div class="yrs">'+t[1]+'</div><h1>'+t[0]+'</h1><p>'+t[2]+'</p><h2>Поэты темы</h2><div class="grid">'+TH[k].map(pc).join('')+'</div><h2>Ваша мысль</h2>'+tb(t[0]);wire()}
+var Q=[['Что для вас важнее?',['Знание и разум','Чувство и образ','Слово для народа']],['Как вы ищете смысл?',['В тишине и размышлении','В живом разговоре','В пути и наблюдении']],['Ваш главный вопрос к миру?',['Как стать лучше?','Что такое любовь?','Что останется после нас?']]],
+R=[['abai','Вы ищете смысл через разум и совесть.'],['makat','Ваш мир лиричен и чувствен.'],['zhambyl','Вы цените живое слово и общий голос.']];
+var qi=0,sc=[0,0,0];
+function quiz(){var qz=document.getElementById('qz');
+if(qi>=Q.length){var k=sc.indexOf(Math.max.apply(null,sc)),r=R[k];
+qz.innerHTML='<div class="card"><span class="tag">Ваш двойник</span><h3>'+P[r[0]].n+'</h3><p>'+r[1]+'</p><a class="btn ghost" href="#p/'+r[0]+'">Страница поэта</a> <button class="btn" id="rs">Заново</button></div>';
+document.getElementById('rs').onclick=function(){qi=0;sc=[0,0,0];quiz();document.getElementById('quiz').scrollIntoView()};return}
+var h='<div><b>'+(qi+1)+'/'+Q.length+'. '+Q[qi][0]+'</b>';
+Q[qi][1].forEach(function(o,i){h+='<button class="opt" data-i="'+i+'">'+o+'</button>'});
+qz.innerHTML=h+'</div>';
+qz.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){sc[+b.dataset.i]++;qi++;quiz()}})}
+function route(){var h=location.hash,m;
+if(m=h.match(/^#p\/(\w+)/)){poet(m[1]);window.scrollTo(0,0)}
+else if(m=h.match(/^#t\/(\w+)/)){theme(m[1]);window.scrollTo(0,0)}
+else{home();var id=h.slice(1),e=id&&document.getElementById(id);if(e)e.scrollIntoView();else window.scrollTo(0,0)}}
+(function(){var h=document.documentElement,b=document.getElementById('tg');try{var sv0=localStorage.getItem('tf_theme');if(sv0)h.setAttribute('data-theme',sv0)}catch(e){}
+function ic(){var t=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');b.textContent=t==='dark'?'☀️':'🌙'}ic();
+b.onclick=function(){var d=h.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),n=d==='dark'?'light':'dark';h.setAttribute('data-theme',n);ic();try{localStorage.setItem('tf_theme',n)}catch(e){}}})();
+function boot(){var go=function(){window.addEventListener('hashchange',route);route()};if(!CFG.DATA_URL)return go();
+fetch(CFG.DATA_URL).then(function(r){return r.json()}).then(function(d){P=d.poets;T=d.themes;TH=d.themePoets;GL=d.glossary}).catch(function(){}).then(go)}
+boot();
+</script>
+</body>
+</html>
